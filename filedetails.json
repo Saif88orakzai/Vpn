@@ -1,11 +1,104 @@
 {
 "ovpn_file":[
-  {"id":0,"file":"client
+  {"id":0,"file":"
+   setenv FORWARD_COMPATIBLE 1
+client
+server-poll-timeout 4
+nobind
+remote 34.172.25.8 1194 udp
+remote 34.172.25.8 1194 udp
+remote 34.172.25.8 443 tcp
+remote 34.172.25.8 1194 udp
+remote 34.172.25.8 1194 udp
+remote 34.172.25.8 1194 udp
+remote 34.172.25.8 1194 udp
+remote 34.172.25.8 1194 udp
 dev tun
-proto udp
-...
-d4ec4105a39c814bd980c9c0e0b8efb4
------END OpenVPN Static key V1-----
-</tls-auth>"},
+dev-type tun
+ns-cert-type server
+setenv opt tls-version-min 1.0 or-highest
+reneg-sec 604800
+sndbuf 0
+rcvbuf 0
+auth-user-pass
+# NOTE: LZO commands are pushed by the Access Server at connect time.
+# NOTE: The below line doesn't disable LZO.
+comp-lzo no
+verb 3
+setenv PUSH_PEER_INFO
+
+<ca>
+-----BEGIN CERTIFICATE-----
+MIICuDCCAaCgAwIBAgIEYxYaQzANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDDApP
+cGVuVlBOIENBMB4XDTIyMDgyOTE1NDgxOVoXDTMyMDkwMjE1NDgxOVowFTETMBEG
+A1UEAwwKT3BlblZQTiBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+AOxpHqU8XyaeSuD2BHkJyz9WHxVto017tDqUOYRsW7wZjp1ldE+5nNLWN05Y/TPT
++tslK/7DX7seIVdaZTpZLZZcWgPLXww4udz/K2pKbLNA4WD/+MM/1HH0OWisFrfx
+rjqlv6LGEAE6Y0dg38hgsNEUBMMLk1gzg7kpaXF3C8IBBCCWNS7+hwPFSPhg+pvl
+U9ardjmuQdFW7IHAdTM7zZaDSi0YBQgOX+xa7ahPr1lYBe0ayJSCWWJMe7jgUCTI
+G7o+BUyAJ8Y2VYngB1A3Ce2fwTHTWhaiXZX1hIF4XdDU1pgB0nk8L0mGmH8GMDsj
+i5pw4wg4tnkuSyqKFlBY5tMCAwEAAaMQMA4wDAYDVR0TBAUwAwEB/zANBgkqhkiG
+9w0BAQsFAAOCAQEAjPZzssVwrFFzmsBKVjOwurh181JD5tdnoa7buqawgUjtctx/
+MYSiNvPcsMilPu6SbfzbQhtIgq90PG/zjNnvMbToGXDW/v8/mGyFTBK4KRs10iiW
+qT+SdJR3iWKJAeFM0ornCq7AXDPFrdFCIkEv3UjUXnTcBPKzW9l/nozzM5sMICUd
+PqYqd6BgUwR0aUo3fh1Vxxr0isAgysAc5wQB08Ig4eTsRgI/7D9GfEhJHqIN0jY3
+DjCCoUP2W2sF05bBczgGvA9TZ8R9owYXgDL6TzlyN8O6KJ5/+35L4FOwfj8oSBZp
+WqpLVrtzFYF6Ba7GRonuPicdpV5akIFH5ZLF7A==
+-----END CERTIFICATE-----
+</ca>
+
+<cert>
+-----BEGIN CERTIFICATE-----
+MIICwjCCAaqgAwIBAgIBAjANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDDApPcGVu
+VlBOIENBMB4XDTIyMDgzMDE0MTg1MVoXDTMyMDkwMzE0MTg1MVowEjEQMA4GA1UE
+AwwHb3BlbnZwbjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN+Rsoeh
+x70DWYcXkSE1GK3n61NlufIPrt9B44Veky9uAmb5UNefiE3w+2SrsB6oj7vyGSkC
+Fd1T8cuvM0pLLr/ohou+9ga3MO36zz4K5YfDNtrkXzNFXtCK+fuuJFZ+hFKCsSz5
+t1dRu1N8VdaOU0Q3776+ohfK/xClpwBGTp3VU474EEvCGTQNfk8emVy9bAQ4WSig
+v+vAHazn/GNEEt0KgVa1lZ7LQvMLONYX3AGvfBOOhYfFOSpoXGJz8NAFO2pCb5sf
+Nbxmh8R0pKx8goJn/AjGhv4U6oO/YWfa2DXw2zvm5jnrQFYXUyHVDDIYHDRq2/ZD
+bdSBkjhRHOXwSVUCAwEAAaMgMB4wCQYDVR0TBAIwADARBglghkgBhvhCAQEEBAMC
+B4AwDQYJKoZIhvcNAQELBQADggEBAL1FqSeIKBzdRK5iCZrkwrghwMcRUB0jkOSp
+Ye3wcYg14a1bm8n75QOZOkMQwc69Smt1J7JIEp171seqNGPCX2RQ9a46KDzYSR8e
+oNPKjYCW3tbw6Rdsh+N1k4gG2692eLYJ6jnmsYk4MLE8pF/8e711OrZv0j8MSc0S
+UpRkWBu8+SeZN0Os5m+koH0VrpRLv+kUCKhOAUI3kUVGyqMpyxn+jxXSGkmLUvKA
+ajuGqDY3sHMywxHmA6e/rA+2txXBQpFn53iTB+X/SXjsSKwaz38fZWEDbKvOhgws
+Nrx2E6YVOkVGUnK8FgS0JUi9MoTq6ujUWv0x/y2Qxnp/kTQU9SM=
+-----END CERTIFICATE-----
+</cert>
+
+<key>
+-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDfkbKHoce9A1mH
+F5EhNRit5+tTZbnyD67fQeOFXpMvbgJm+VDXn4hN8Ptkq7AeqI+78hkpAhXdU/HL
+rzNKSy6/6IaLvvYGtzDt+s8+CuWHwzba5F8zRV7Qivn7riRWfoRSgrEs+bdXUbtT
+fFXWjlNEN+++vqIXyv8QpacARk6d1VOO+BBLwhk0DX5PHplcvWwEOFkooL/rwB2s
+5/xjRBLdCoFWtZWey0LzCzjWF9wBr3wTjoWHxTkqaFxic/DQBTtqQm+bHzW8ZofE
+dKSsfIKCZ/wIxob+FOqDv2Fn2tg18Ns75uY560BWF1Mh1QwyGBw0atv2Q23UgZI4
+URzl8ElVAgMBAAECggEAEX5NAd/eySNh9fgaGwcUj0b+WuAy1IX1oPJ+4wira6Kn
+/Xa0pKqO98pLYW0tsrhtxr8CyPqoy1CuMsnasY2AcvO202h1x8C9y2E8phYkL6NO
+v4HvEQv0h0zYkqDlpv7vS6V+R46ikeqLRdUMwmUQjt3xnHM+K65ultbfYl4d+Kt7
+DpkFE7rsyxb78b8eTCTM5IDoIE0FGv1NSMPIOj9aL3oY2Qx/5xA1Vao9UEa5ixzo
+o6GWITerZeqFhmlv8+9iED/ZN+PIm6NfCbGCrF+Ex39SRv859NIw5N3nYv5wMmqx
+ITenIe86JMOlOqZNBQLinb62uaIkG4junslxDg/uYQKBgQD4xdaj3bhRkhc+XGPm
+e8sBHU+jEpiYptz687pG6jX2KbznMrSiqc2HJbsBYtM7DpDPKB22on7tJtMtoHj8
+ucPgfh4LU3x55/r8wXLNVrJac9I3/wFCxSc24+qSQxawE3yd9uM8ZrQVjZT4ceWB
+EcbJzLsXNKZgIHQ8xCI68bqNcwKBgQDmEGpTbm/+cj9iQg1eDFMDzEK9NuxTmW9N
+jZfkspYT+PrqQhbeAva5gwz5BaMwoh+vsDjOwXDMu8yGLKpcdIqKd23NumgAJuRr
+m4qb7wpmAmYmxJp8VRPBpkgENz8BWjj0Y1PrpJIFcSf+6ne/R3YVRN/esssYNAAL
++5GJUTccFwKBgQCpOrwGgP+vzbeuHl9/HNs+CNhx0GaqAWj19fLT5uOKb14n0KB8
+vxInS41pJfcXh5MOuPVtliDN5sllknJ7SUtsXZ7GiaZ1r09XvakA8mcljQCGQxxy
+dXd1qZmaobS/VqJBOv/dyOfceZHLaH99S8B06qai5JgBcFJiO/IlMud67QKBgFd1
+khYZe7XNFM9zsMU6Bi0Bb7WitYCqaaef1kh4o5kAI9L+QNcxZT3s1fes7vbECyus
+4EupOgp6siunuzPekfRFppZ48KRuJJPL04un+doBu3etcdUmOpZ5chM4NVl8RP6S
+7Ao+y8wJ0lyUIeWzcu5u+nQcoByZWBM2FYOQPlUNAoGBAMpG/LHrjxbSe8PKsGuZ
+hSWjyz24S/KobjIQN6Yqat0MkIulueQ7HdTbPGb/+ysxmUVFvCTJjHVQk2RL4sem
+Cc0gzpgJbRBteyJTwkwY0XwGYYFeHqOtXhvaWNqHt92a2FLvUZSi2/2u2jVlt5aK
+MpkcOu377qhkh517wiENS+W5
+-----END PRIVATE KEY-----
+</key>
+
+key-direction 1
+<tls-auth>"},
 {"id":1,"file":""}]
 }
